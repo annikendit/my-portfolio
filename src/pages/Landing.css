@@ -4,7 +4,7 @@
   align-items: center;
   height: 100vh;
   background: #0d0d0d;
-  color: #00ffcc;
+  color: #fb00ff;
   font-family: 'Courier New', monospace;
 }
 
@@ -14,7 +14,7 @@
   white-space: nowrap;
   overflow: hidden;
   width: 0;
-  animation: typing 4s steps(11), blink 0.8s infinite step-end;
+  animation: typing 5s steps(12), blink 0.8s infinite step-end;
 }
 
 @keyframes typing {
