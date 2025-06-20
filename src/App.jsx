@@ -1,19 +1,45 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import Landing from './pages/Landing'
 import Home from './pages/Home'
 import About from './pages/About'
 import Projects from './pages/Projects'
 
-export default function App() {
+function AppRoutes() {
+  const location = useLocation()
+  const [showNav, setShowNav] = useState(true)
+
+  useEffect(() => {
+    if (location.pathname === '/') {
+      setShowNav(false)
+      const timer = setTimeout(() => setShowNav(true), 3000) // vis nav etter 3 sek
+      return () => clearTimeout(timer)
+    } else {
+      setShowNav(true)
+    }
+  }, [location.pathname])
+
   return (
-    <Router>
-      <nav>
-        <Link to="/">Hjem</Link> | <Link to="/about">Om meg</Link> | <Link to="/projects">Prosjekter</Link>
-      </nav>
+    <>
+      {showNav && (
+        <nav>
+          <Link to="/">Intro</Link> | <Link to="/home">Hjem</Link> | <Link to="/about">Om meg</Link> | <Link to="/projects">Prosjekter</Link>
+        </nav>
+      )}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
       </Routes>
+    </>
+  )
+}
+
+export default function App() {
+  return (
+    <Router>
+      <AppRoutes />
     </Router>
   )
 }

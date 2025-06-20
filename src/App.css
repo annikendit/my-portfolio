@@ -40,3 +40,15 @@
 .read-the-docs {
   color: #888;
 }
+
+nav {
+  opacity: 0;
+  animation: fadein 0.8s ease-in forwards;
+  animation-delay: 0.1s;
+}
+
+@keyframes fadein {
+  to {
+    opacity: 1;
+  }
+}
