@@ -1,16 +1,19 @@
 .landing-container {
+  height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: #0d0d0d;
-  color: #fb00ff;
-  font: 'Arial';
+  background-color: #0d0d0d;
+  color: #8ace00;
+  font-family: 'Courier New', monospace;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
-
 .typewriter {
   font-size: 2.5rem;
-  border-right: 3px solid #fb00ff;
+  border-right: 3px solid #8ace00;
   white-space: nowrap;
   overflow: hidden;
   width: 0;
@@ -24,4 +27,23 @@
 
 @keyframes blink {
   50% { border-color: transparent }
+}
+
+/* Nav styling – felles for hele appen */
+nav {
+  background-color: #0d0d0d;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav a {
+  color: #00ffcc;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffffff;
 }
