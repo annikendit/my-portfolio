@@ -84,9 +84,10 @@ nav a:hover {
 
 .page {
   min-height: 100vh;
-  padding: 2rem;
+  padding: 5vm;
   background-color: #0d0d0d;
   color: #e0e0e0;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
 }
 
 

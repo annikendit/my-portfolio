@@ -12,7 +12,7 @@
   overflow: hidden;
 }
 .typewriter {
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 5vw, 3rem);
   border-right: 3px solid #8ace00;
   white-space: nowrap;
   overflow: hidden;
