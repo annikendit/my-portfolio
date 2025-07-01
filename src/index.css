@@ -35,8 +35,7 @@ body {
   color: #0d0d0d;
   display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+ 
 }
 
 h1 {
@@ -65,13 +64,13 @@ button:focus-visible {
 
 nav {
   background-color: #0d0d0d;
-  padding: 1rem;
+  
   text-align: center;
   border-bottom: 1px solid #222;
 }
 
 nav a {
-  color: #00ffcc;
+  color: #ffffff;
   text-decoration: none;
   margin: 0 1rem;
   font-weight: bold;
@@ -83,8 +82,7 @@ nav a:hover {
 }
 
 .page {
-  min-height: 100vh;
-  padding: 5vm;
+  
   background-color: #0d0d0d;
   color: #e0e0e0;
   font-size: clamp(1rem, 2.5vw, 1.25rem);
