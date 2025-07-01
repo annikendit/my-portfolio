@@ -1,3 +1,10 @@
 export default function Home() {
-  return <h1>Velkommen til min portfolio!</h1>
+  return (
+    <div className="page">
+      <h1>Velkommen til Hjem</h1>
+      <p>Dette er hjemmesiden i mørk modus</p>
+    </div>
+  )
 }
+
+

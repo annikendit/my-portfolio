@@ -30,6 +30,9 @@ a:hover {
 
 body {
   margin: 0;
+  padding: 0;
+  background-color: #0d0d0d;
+  color: #0d0d0d;
   display: flex;
   place-items: center;
   min-width: 320px;
@@ -59,6 +62,33 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+nav {
+  background-color: #0d0d0d;
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #222;
+}
+
+nav a {
+  color: #00ffcc;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffffff;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #0d0d0d;
+  color: #e0e0e0;
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {
