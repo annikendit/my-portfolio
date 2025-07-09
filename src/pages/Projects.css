@@ -1,0 +1,68 @@
+.project-card p {
+  white-space: pre-wrap; /* gjør at \n og lange linjer vises fint */
+  margin-top: 0.5rem;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.project-title {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.project-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-badge {
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background-color: #ddd;
+  color: #000;
+  opacity: 0.9;
+}
+
+/* 💖 Pastell-farger etter tag */
+.tag-hobby {
+    background-color: #ffe3ec;
+    color: #c2185b;
+}
+
+.tag-frontend {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
+.tag-react {
+    background-color: #e1f5fe;
+    color: #0277bd;
+}
+
+.tag-fullstack {
+    background-color: #ede7f6;
+    color: #5e35b1;
+}
+
+.tag-skole {
+    background-color: #f1f8e9;
+    color: #558b2f;
+}
+
+.tag-kotlin {
+    background-color: #fff3e0;
+    color: #ef6c00;
+}

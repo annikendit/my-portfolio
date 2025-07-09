@@ -109,7 +109,7 @@ export default function Game() {
       type: Phaser.AUTO,
       width: gameOptions.width,
       height: gameOptions.height,
-      backgroundColor: '#0d0d0d',
+      backgroundColor: null,
       physics: {
         default: 'arcade',
         arcade: {

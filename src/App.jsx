@@ -24,7 +24,7 @@ function AppRoutes() {
     <>
       {showNav && (
         <nav>
-          <Link to="/">Intro</Link> | <Link to="/home">Hjem</Link> | <Link to="/about">Om meg</Link> | <Link to="/projects">Prosjekter</Link> | <Link to="/games">Spill</Link>
+          <Link to="/">Intro</Link> | <Link to="/home">Hjem</Link> | <Link to="/about">Om meg</Link> | <Link to="/projects">Prosjekter</Link> | <Link to="/games">Spill</Link> | <a href="https://github.com/annikendit" target="_blank" rel="noopener noreferrer">GitHub</a>
 
         </nav>
       )}

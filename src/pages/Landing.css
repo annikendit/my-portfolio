@@ -1,45 +1,63 @@
+/* Hele wrapperen */
+.landing-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Courier New', monospace;
+  color: var(--text);
+}
+
+/* Animasjonsskjermen */
 .landing-container {
+  min-height: 60vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #0d0d0d;
-  color: #8ace00;
-  font-family: 'Courier New', monospace;
-  padding: 0;
-  margin: 0;
+  background-color: var(--bg);
+  color: var(--accent);
   overflow: hidden;
+  text-align: center;
+  font-family: 'Courier New', monospace;
 }
+
+/* Typing-effekten */
 .typewriter {
-  font-size: clamp(1.5rem, 5vw, 3rem);
-  border-right: 3px solid #8ace00;
+  font-size: clamp(2rem, 6vw, 4rem);
+  border-right: 2px solid var(--accent);
   white-space: nowrap;
   overflow: hidden;
   width: 0;
-  animation: typing 5s steps(12), blink 0.8s infinite step-end;
+  color: #8ACE00;
+  animation: 
+    typing 4s steps(11, end) forwards,
+    blink 0.8s step-end infinite;
 }
 
 @keyframes typing {
   from { width: 0 }
-  to { width: 12ch }
+  to { width: 11ch }
 }
 
 @keyframes blink {
   50% { border-color: transparent }
 }
 
-/* Nav styling – felles for hele appen */
-nav {
-  background-color: #0d0d0d;
+/* Teksten etterpå */
+.intro-text {
   text-align: center;
+  margin-top: 3rem;
+  max-width: 700px;
+  padding: 2rem;
+  font-family: 'Courier New', monospace;
 }
 
-nav a {
-  color: #00ffcc;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
+.intro-text h2 {
+  margin-bottom: 1rem;
+  color: var(--accent);
 }
 
-nav a:hover {
-  color: #ffffff;
+.intro-text h3 {
+  line-height: 1.6;
+  font-weight: 400;
 }
