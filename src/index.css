@@ -40,6 +40,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  cursor: none;
 }
 
 /* TYPOGRAFI */
@@ -118,4 +119,10 @@ button:hover,
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+*,
+*::before,
+*::after {
+  cursor: none !important;
 }

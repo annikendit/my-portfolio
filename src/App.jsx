@@ -6,6 +6,7 @@ import About from './pages/About'
 import Projects from './pages/Projects'
 import Games from './pages/Games'
 import Game from './pages/Game'
+import CustomCursor from './components/CustomCursor'
 
 function AppRoutes() {
   const location = useLocation()
@@ -43,8 +44,11 @@ function AppRoutes() {
 
 export default function App() {
   return (
-    <Router>
-      <AppRoutes />
-    </Router>
+    <>
+      <CustomCursor />
+      <Router>
+        <AppRoutes />
+      </Router>
+    </>
   )
 }

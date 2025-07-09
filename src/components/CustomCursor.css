@@ -1,0 +1,18 @@
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  background-color: rgba(255, 153, 204, 0.8); /* Søt rosa */
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.custom-cursor.hover {
+  background-color: rgba(204, 153, 255, 0.9); /* Lavendel lilla på hover */
+  transform: translate(-50%, -50%) scale(1.4); /* Litt større på hover */
+}
