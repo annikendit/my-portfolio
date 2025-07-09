@@ -4,23 +4,21 @@
 }
 
 .project-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 0.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .project-title {
-  font-size: 1.4rem;
-  margin: 0;
+  font-size: 1.5rem;
+  margin: 0.5rem;
 }
 
-.project-badges {
+.project-badges-centered {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .project-badge {
@@ -29,40 +27,58 @@
   padding: 0.25rem 0.75rem;
   border-radius: 999px;
   white-space: nowrap;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
-  background-color: #ddd;
-  color: #000;
-  opacity: 0.9;
+  text-transform: uppercase;
 }
+
 
 /* 💖 Pastell-farger etter tag */
 .tag-hobby {
-    background-color: #ffe3ec;
-    color: #c2185b;
+  background-color: #ffe3ed;  /* rosa */
+  color: #d63384;
 }
 
 .tag-frontend {
-    background-color: #e3f2fd;
-    color: #1565c0;
+  background-color: #e0f7ff;  /* lys blå */
+  color: #0096c7;
 }
 
 .tag-react {
-    background-color: #e1f5fe;
-    color: #0277bd;
+  background-color: #dfe7fd;  /* lavendel blå */
+  color: #3b82f6;
 }
 
 .tag-fullstack {
-    background-color: #ede7f6;
-    color: #5e35b1;
+  background-color: #f3e5f5;  /* lilla */
+  color: #8e44ad;
 }
 
 .tag-skole {
-    background-color: #f1f8e9;
-    color: #558b2f;
+  background-color: #f1ffe3;  /* smørgrønn */
+  color: #5b8c00;
 }
 
 .tag-kotlin {
-    background-color: #fff3e0;
-    color: #ef6c00;
+  background-color: #fff0e5;  /* lys aprikos */
+  color: #ff6f00;
+}
+
+.tag-spill {
+  background-color: #e5fdeb;  /* mintgrønn */
+  color: #2ecc71;
+}
+
+.tag-phaser {
+  background-color: #fceeff;  /* veldig lys lilla */
+  color: #b043d1;
+}
+
+.tag-smidig {
+  background-color: #fffde1;  /* smørgul */
+  color: #ffb300;
+}
+
+.tag-css {
+  background-color: #e3edff;  /* lys himmelblå */
+  color: #2962ff;
 }
