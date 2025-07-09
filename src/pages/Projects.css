@@ -1,3 +1,16 @@
+
+.project-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .project-card p {
   white-space: pre-wrap; /* gjør at \n og lange linjer vises fint */
   margin-top: 0.5rem;

@@ -1,4 +1,5 @@
 import './Projects.css'
+import { useEffect } from 'react'
 
 const projects = [
   {
@@ -49,6 +50,31 @@ const projects = [
 ]
 
 export default function Projects() {
+  
+  // slide-in effect
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+            observer.unobserve(entry.target) // bare animér én gang
+        }
+      })
+    },
+   { threshold: 0.1 }
+  )
+
+  const cards = document.querySelectorAll('.project-card')
+  if (cards.length > 0) {
+    cards.forEach((card) => observer.observe(card))
+  }
+
+  return () => {
+    cards.forEach((card) => observer.unobserve(card))
+  }
+}, [])
+
   return (
     <div className="projects-page">
       <h1>Mine Prosjekter</h1>
