@@ -7,6 +7,7 @@ import Projects from './pages/Projects'
 import Games from './pages/Games'
 import Game from './pages/Game'
 import CustomCursor from './components/CustomCursor'
+import ScrollToTopButton from './components/ScrollToTopButton'
 
 function AppRoutes() {
   const location = useLocation()
@@ -48,6 +49,7 @@ export default function App() {
       <CustomCursor />
       <Router>
         <AppRoutes />
+        <ScrollToTopButton />
       </Router>
     </>
   )
