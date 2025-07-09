@@ -1,3 +1,5 @@
+// Videre utviklings ideer: game over skjerm, kanskje støttes for mobil?
+
 import { useEffect, useRef } from 'react'
 import Phaser from 'phaser'
 import { Link } from 'react-router-dom'
@@ -6,12 +8,12 @@ export default function Game() {
   const gameRef = useRef(null)
 
   useEffect(() => {
-    if (gameRef.current) return // unngå å lage spillet flere ganger
+    if (gameRef.current) return
 
     const gameOptions = {
       width: 480,
       height: 640,
-      gravity: 800
+      gravity: 800,
     }
 
     class JumpScene extends Phaser.Scene {
@@ -22,9 +24,9 @@ export default function Game() {
       preload() {
         this.load.image('platform', 'https://content.codecademy.com/courses/learn-phaser/Codey%20Jump/platform.png')
         this.load.image('stripe', 'https://content.codecademy.com/courses/learn-phaser/Codey%20Jump/stripe.png')
-        this.load.spritesheet("codey", "https://content.codecademy.com/courses/learn-phaser/Codey%20Jump/codey.png", {
+        this.load.spritesheet('codey', 'https://content.codecademy.com/courses/learn-phaser/Codey%20Jump/codey.png', {
           frameWidth: 72,
-          frameHeight: 90
+          frameHeight: 90,
         })
       }
 
@@ -36,16 +38,16 @@ export default function Game() {
           repeat: -1,
         })
 
-        this.physics.world.setBounds(0, 0, 480, 640)
+        this.physics.world.setBounds(0, 0, gameOptions.width, gameOptions.height)
 
         this.platforms = this.physics.add.group({ allowGravity: false, immovable: true })
-
+        const spacing = 100
         for (let i = 0; i < 8; i++) {
-          let randomX = Math.floor(Math.random() * 400) + 24
-          this.platforms.create(randomX, i * 80, 'platform').setScale(.5)
+          let randomX = Phaser.Math.Between(24, 400)
+          this.platforms.create(randomX, i * spacing, 'platform').setScale(0.5).refreshBody()
         }
 
-        this.player = this.physics.add.sprite(100, 450, 'codey').setScale(.5)
+        this.player = this.physics.add.sprite(100, 300, 'codey').setScale(0.5)
         this.player.setBounce(1)
         this.player.setCollideWorldBounds(true)
         this.player.body.checkCollision.up = false
@@ -53,9 +55,44 @@ export default function Game() {
         this.player.body.checkCollision.right = false
 
         this.physics.add.collider(this.player, this.platforms)
+
         this.cursors = this.input.keyboard.createCursorKeys()
         this.particles = this.add.particles('stripe')
         this.platformCount = 0
+
+    this.score = 0
+    this.highScore = parseInt(localStorage.getItem('highScore')) || 0
+
+    this.scoreText = this.add.text(16, 16, 'Score: 0', {
+        fontSize: '18px',
+        fill: '#ff66cc',
+        fontFamily: 'monospace',
+        backgroundColor: '#fff0fa',
+        padding: { x: 8, y: 4 },
+        borderRadius: 4
+    }).setScrollFactor(0)
+
+    this.highScoreText = this.add.text(16, 40, `Highscore: ${this.highScore}`, {
+        fontSize: '14px',
+        fill: '#b347cc',
+        fontFamily: 'monospace',
+        backgroundColor: '#f9e6ff',
+        padding: { x: 6, y: 3 },
+    }).setScrollFactor(0)
+
+        // Kamera følger spilleren mykt
+        this.cameras.main.setBounds(0, 0, gameOptions.width, gameOptions.height * 100)
+        this.cameras.main.startFollow(this.player, true, 0.05, 0.05)
+      }
+
+      hasPlatformAbovePlayer() {
+        let found = false
+        this.platforms.children.iterate((platform) => {
+          if (platform.y < this.player.y - 50) {
+            found = true
+          }
+        })
+        return found
       }
 
       update() {
@@ -80,9 +117,9 @@ export default function Game() {
             y: gameOptions.height + 10,
             lifespan: 2500,
             speedY: { min: -300, max: -500 },
-            scale: .5,
+            scale: 0.5,
             quantity: 5,
-            blendMode: 'ADD'
+            blendMode: 'ADD',
           })
         }
 
@@ -93,12 +130,28 @@ export default function Game() {
               platform.y += delta / 30
             }
 
-            if (platform.y > 640) {
-              platform.y = -platform.height
-              platform.x = Math.floor(Math.random() * 400) + 24
+            if (platform.y > this.player.y + 400) {
+              platform.y = this.player.y - Phaser.Math.Between(100, 130)
+              platform.x = Phaser.Math.Between(24, 400)
               this.platformCount++
+              this.score += 1
+                this.scoreText.setText(`Score: ${this.score}`)
+
+            if (this.score > this.highScore) {
+                this.highScore = this.score
+                this.highScoreText.setText(`Highscore: ${this.highScore}`)
+                localStorage.setItem('highScore', this.highScore)
+            }
+              platform.refreshBody()
             }
           })
+        }
+
+        // Hvis ingen plattformer over spilleren, lag en ny
+        if (!this.hasPlatformAbovePlayer()) {
+          const x = Phaser.Math.Between(24, 400)
+          const y = this.player.y - Phaser.Math.Between(110, 140)
+          this.platforms.create(x, y, 'platform').setScale(0.5).refreshBody()
         }
 
         this.player.anims.play('jump', true)
@@ -109,7 +162,7 @@ export default function Game() {
       type: Phaser.AUTO,
       width: gameOptions.width,
       height: gameOptions.height,
-      backgroundColor: null,
+      backgroundColor: '#ffe6f7', // Rosa pastell 💖
       physics: {
         default: 'arcade',
         arcade: {
@@ -120,41 +173,57 @@ export default function Game() {
       parent: 'game-container',
     }
 
-    gameRef.current = new Phaser.Game(config)
+    try {
+      gameRef.current = new Phaser.Game(config)
+    } catch (err) {
+      console.error('Phaser feilet ved init:', err)
+    }
   }, [])
 
-  
   return (
-  <>
-    <Link
-      to="/projects/games"
-      style={{
-        position: 'absolute',
-        top: '20px',
-        left: '20px',
-        zIndex: 10,
-        background: '#00ffcc',
-        color: '#0d0d0d',
-        padding: '0.5rem 1rem',
-        borderRadius: '6px',
-        fontWeight: 'bold',
-        textDecoration: 'none',
-      }}
-    >
-      ← Tilbake
-    </Link>
-
     <div
-      id="game-container"
       style={{
+        backgroundColor: '#ffe6f7',
+        minHeight: '100vh',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100vh',
-        backgroundColor: '#0d0d0d',
+        position: 'relative',
+        flexDirection: 'column',
       }}
-    />
-  </>
-)
+    >
+      <Link
+        to="/games"
+        style={{
+          position: 'absolute',
+          top: '20px',
+          left: '20px',
+          zIndex: 10,
+          background: '#e0b3ff',
+          color: '#1a1a1a',
+          padding: '0.6rem 1rem',
+          borderRadius: '999px',
+          fontWeight: 'bold',
+          textDecoration: 'none',
+          boxShadow: '0 0 10px rgba(0,0,0,0.2)',
+        }}
+      >
+        ← Tilbake
+      </Link>
 
+      <div
+        id="game-container"
+        style={{
+          width: '480px',
+          height: 'min(95vh, 640px)',
+          maxWidth: '100%',
+          border: '4px solid #ffccff',
+          borderRadius: '12px',
+          overflow: 'hidden',
+          boxShadow: '0 0 30px rgba(255, 153, 255, 0.5)',
+          backgroundColor: '#fff0fa',
+        }}
+      />
+    </div>
+  )
 }

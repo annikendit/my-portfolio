@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Projects from './pages/Projects'
 import Games from './pages/Games'
+import Game from './pages/Game'
 
 function AppRoutes() {
   const location = useLocation()
@@ -33,7 +34,8 @@ function AppRoutes() {
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/games" element={<Games/>} />
+        <Route path="/games" element={<Games />} />
+        <Route path="/games/game" element={<Game />} />
       </Routes>
     </>
   )

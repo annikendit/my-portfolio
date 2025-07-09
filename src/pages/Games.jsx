@@ -6,7 +6,7 @@ export default function Games() {
       <h1>Spillprosjekter</h1>
       <p>Her kan du prøve et lite plattformspill jeg har laget med Phaser 👾</p>
       <div style={{ marginTop: '2rem' }}>
-        <Link to="/game" className="game-link-button">
+        <Link to="/games/game" className="game-link-button">
           🎮 Start spillet
         </Link>
       </div>
