@@ -4,6 +4,7 @@ import Landing from './pages/Landing'
 import Home from './pages/Home'
 import About from './pages/About'
 import Projects from './pages/Projects'
+import Games from './pages/Games'
 
 function AppRoutes() {
   const location = useLocation()
@@ -23,7 +24,8 @@ function AppRoutes() {
     <>
       {showNav && (
         <nav>
-          <Link to="/">Intro</Link> | <Link to="/home">Hjem</Link> | <Link to="/about">Om meg</Link> | <Link to="/projects">Prosjekter</Link>
+          <Link to="/">Intro</Link> | <Link to="/home">Hjem</Link> | <Link to="/about">Om meg</Link> | <Link to="/projects">Prosjekter</Link> | <Link to="/games">Spill</Link>
+
         </nav>
       )}
       <Routes>
@@ -31,6 +33,7 @@ function AppRoutes() {
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/games" element={<Games/>} />
       </Routes>
     </>
   )
