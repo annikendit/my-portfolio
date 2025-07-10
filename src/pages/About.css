@@ -1,0 +1,115 @@
+.cv-page,
+.about-page {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--text-color);
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+}
+
+.cv-page h1,
+.about-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.cv-intro,
+.about-page p {
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: 60ch;
+  margin: 0 auto 3rem auto;
+}
+
+.cv-section {
+  margin-bottom: 2.5rem;
+}
+
+.cv-section h2,
+.skills-section h2 {
+  font-size: 1.5rem;
+  color: var(--hover-start);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.cv-section ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.cv-section li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.skills-section {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  padding: 0;
+}
+
+.skill {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* 🎨 Pastell fargekoder for ferdigheter */
+.skill.language {
+  background-color: #cba4f9; /* Lilla */
+}
+
+.skill.framework {
+  background-color: #ffb3d1; /* Rosa */
+}
+
+.skill.style {
+  background-color: #8ecaff; /* Lys blå */
+}
+
+.skill.design {
+  background-color: #a2f4c5; /* Mintgrønn */
+  color: #1a1a1a;
+}
+
+.skill.other {
+  background-color: #fff3b0; /* Pastellgul */
+  color: #1a1a1a;
+}
+
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    --hover-start: #b39ddb;
+    --text-color: #1a1a1a;
+  }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --hover-start: #d1c4e9;
+    --text-color: #f5f5f5;
+  }
+
+  .about-page,
+  .cv-page {
+    color: #f5f5f5;
+  }
+}
