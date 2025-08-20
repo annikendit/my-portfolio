@@ -23,7 +23,7 @@ const projects = [
     description: `
   Et lite spill jeg snekra sammen med Phaser – en slags mini-Doodle Jump, bare litt mer rosa 🎀
 
-  Jeg fulgte et kurs fra Codecademy og tilpassa det underveis. Her kan du hoppe høyere og høyere, lande på plattformer og få et skikkelig *retro feel*.
+  Jeg fulgte et kurs fra Codecademy og tilpassa det underveis. Her kan du hoppe høyere og høyere, lande på plattformer.
 
   Hadde det overraskende gøy med å legge til partikler og små effekter – og det er fortsatt en av de tingene jeg viser frem først når jeg vil si "se, jeg kan kodespille litt!" 🎮✨
 
@@ -34,11 +34,12 @@ const projects = [
   },
   {
     title: 'IN2000 - RocketBoy',
-    tags: ['Skole', 'Fullstack', 'Kotlin', 'Smidig'],
+    tags: ['Universitet', 'Fullstack', 'Kotlin', 'Smidig'],
     description: `
   Dette var et gruppeprosjekt fra IN2000 på UiO – og her fikk vi bryne oss på å utvikle en værbasert planleggingsapp for rakettoppskytning 🚀🌤️
 
-  Vi samarbeidet med studentforeningen Portal Space og brukte API-er fra MET (Meteorologisk institutt) for å hente inn værdata, som brukerne kunne filtrere på. Målet: finne den perfekte dagen å skyte opp rakett!
+  Vi samarbeidet med studentforeningen Portal Space og brukte API-er fra MET (Meteorologisk institutt) for å hente inn værdata, som brukerne kunne filtrere på. 
+  Målet: finne den perfekte dagen å skyte opp rakett!
 
   Appen ble bygget i Android Studio med Kotlin – og vi brukte smidig metodikk (og masse Miro). Jeg fikk prøvd meg som både utvikler, designer og scrum master 💼💅
 

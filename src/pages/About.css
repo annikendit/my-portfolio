@@ -1,4 +1,40 @@
 .cv-page,
+
+.cv-page {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column; /* Sørg for vertikal stacking */
+  align-items: center;    /* Sentraliser innhold */
+  text-align: center;     /* Midtstill tekst */
+}
+
+.about-list {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.about-card {
+  background: var(--card-bg, #fff);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: left; /* Inni kortet kan vi ha normal venstrejustert tekst */
+}
+
+.cv-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+
 .about-page {
   padding: 4rem 2rem;
   max-width: 900px;
@@ -30,10 +66,25 @@
 .cv-section h2,
 .skills-section h2 {
   font-size: 1.5rem;
-  color: var(--hover-start);
+  color: var(--heading-color);
   margin-bottom: 1rem;
   text-align: center;
 }
+
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    --heading-color: #5a3d9a; /* dyp lilla */
+  }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --heading-color: #d8b9ff; /* lys lilla, mer kontrast */
+  }
+}
+
 
 .cv-section ul {
   list-style-type: none;
